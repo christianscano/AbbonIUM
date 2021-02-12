@@ -1,44 +1,56 @@
 package com.splashBrothers.abbonium.HomeFragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.splashBrothers.abbonium.ListaServiziHomeAdapter;
+import com.splashBrothers.abbonium.LoginActivity;
 import com.splashBrothers.abbonium.R;
-import com.splashBrothers.abbonium.Services.Servizio;
-import com.splashBrothers.abbonium.Services.ServizioInfo;
-import com.splashBrothers.abbonium.Services.ServizioMarvelUnlimited;
-import com.splashBrothers.abbonium.Services.ServizioNetflix;
-import com.splashBrothers.abbonium.Utente;
+import com.splashBrothers.abbonium.Data.Services.Servizio;
+import com.splashBrothers.abbonium.Data.Services.ServizioInfo;
+import com.splashBrothers.abbonium.Data.Services.ServizioMarvelUnlimited;
+import com.splashBrothers.abbonium.Data.Services.ServizioNetflix;
+import com.splashBrothers.abbonium.Data.Utente;
 
-import java.security.Provider;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
 
+    SearchView searchView;
+    TextView benvenuto;
+    RecyclerView listaServiziGlobali;
+
     ListaServiziHomeAdapter listaServiziHomeAdapter;
-    RecyclerView listaServizi;
+    Utente utenteAttivo;
+    HashMap<String, Utente> utentiGlobali;
+    ArrayList<Servizio> serviziGlobali;
 
-    public HomeFragment() {
-
+    public HomeFragment(HashMap<String, Utente> utentiGlobali, ArrayList<Servizio> serviziGlobali, Utente utenteAttivo) {
+        this.utenteAttivo = utenteAttivo;
+        this.serviziGlobali = serviziGlobali;
+        this.utentiGlobali = utentiGlobali;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -46,44 +58,37 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listaServizi = view.findViewById(R.id.listaGruppiDisponibili);
+        listaServiziGlobali = view.findViewById(R.id.listaGruppiDisponibili);
+        benvenuto = view.findViewById(R.id.textBenvenuto);
+        searchView = view.findViewById(R.id.searchBar);
 
-        listaServizi.setHasFixedSize(true);
-        listaServizi.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
-        listaServiziHomeAdapter = new ListaServiziHomeAdapter(createListServizi());
-        listaServizi.setAdapter(listaServiziHomeAdapter);
-    }
+        //Imposto la dimensione del recyclerView fissa
+        listaServiziGlobali.setHasFixedSize(true); //Imposto la dimensione del recyclerView fissa
+        listaServiziGlobali.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
 
-    public ArrayList<Servizio> createListServizi() {
-        ArrayList<Servizio> listaServizi = new ArrayList<>();
+        listaServiziHomeAdapter = new ListaServiziHomeAdapter(serviziGlobali);
+        listaServiziGlobali.setAdapter(listaServiziHomeAdapter);
 
-        listaServizi.add(new ServizioNetflix(
-                15.99,
-                ServizioInfo.TipoRinnovo.MENSILE,
-                ServizioInfo.TipoRelazione.STESSO_NUCLEO_DOMESTICO,
-                3,
-                new Utente(
-                        "cris417tian1234dnejdwekdnwe",
-                        "Christian",
-                        "Scano",
-                        "123",
-                        "jckxnbckj",
-                        "01/01/1999"
-                )));
+        benvenuto.setText("Benvenuto " + utenteAttivo.getNome());
 
-        listaServizi.add(new ServizioMarvelUnlimited(
-                8.99,
-                ServizioInfo.TipoRinnovo.MENSILE,
-                ServizioInfo.TipoRelazione.AMICI,
-                3,
-                new Utente(
-                        "cris",
-                        "Christian",
-                        "Scano",
-                        "123",
-                        "jckxnbckj",
-                        "01/01/1999"
-                )));
-        return listaServizi;
+        //Modifico il font della searchView
+        Typeface tf = ResourcesCompat.getFont(requireContext(), R.font.baloo);
+        int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        TextView searchText = (TextView) searchView.findViewById(id);
+        searchText.setTypeface(tf);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                listaServiziHomeAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
+
     }
 }

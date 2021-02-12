@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DatePicker" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">@color/turchese</item>
+        <item name="fontFamily">@font/baloo</item>
+        <item name="colorOnPrimary">@color/nero_200</item>
+    </style>
+</resources>

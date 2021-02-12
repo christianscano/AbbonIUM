@@ -1,18 +1,22 @@
-package com.splashBrothers.abbonium.Services;
+package com.splashBrothers.abbonium.Data.Services;
 
-import com.splashBrothers.abbonium.Utente;
+import com.splashBrothers.abbonium.Data.Utente;
+import com.splashBrothers.abbonium.LoginActivity;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+
 
 abstract public class Servizio {
     String nomeServizio;
     int imgSource;
     double costoTotale;
     ServizioInfo.TipoRinnovo frequenzaRinnovo;
-    int nPosti;
+    int nPosti; //posti disponibili
     int maxPosti;
     ServizioInfo.TipoRelazione tipoRelazione;
 
-    String creatore;
+    String creatore; //email del creatore
     HashMap<String, Utente> membri;
 
     public Servizio(String nomeServizio, int imgSource, double costoTotale, ServizioInfo.TipoRinnovo frequenzaRinnovo,
@@ -25,12 +29,10 @@ abstract public class Servizio {
         this.maxPosti = maxPosti;
         this.tipoRelazione = tipoRelazione;
 
-        creatore = proprietario.getUsername();
+        creatore = proprietario.getEmail();
         membri = new HashMap<>();
         membri.put(creatore, proprietario);
     }
-
-
 
     public String getNomeServizio() {
         return nomeServizio;
@@ -102,5 +104,9 @@ abstract public class Servizio {
 
     public void setMaxPosti(int maxPosti) {
         this.maxPosti = maxPosti;
+    }
+
+    public double getCostoSingolo() {
+        return costoTotale / (maxPosti + 1);
     }
 }

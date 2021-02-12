@@ -1,7 +1,6 @@
-package com.splashBrothers.abbonium.Services;
+package com.splashBrothers.abbonium.Data.Services;
 
-import com.splashBrothers.abbonium.R;
-import com.splashBrothers.abbonium.Utente;
+import com.splashBrothers.abbonium.Data.Utente;
 
 public class ServizioNetflix extends Servizio {
 
