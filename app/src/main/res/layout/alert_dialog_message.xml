@@ -18,13 +18,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:textSize="@dimen/Text"
+            android:justificationMode="inter_word"
             android:text="Info"
             android:textColor="@color/nero_200"
-            android:gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal"
             android:layout_marginTop="40sp"
-            android:layout_marginLeft="16sp"
+            android:layout_marginLeft="30sp"
             android:layout_marginBottom="10sp"
-            android:layout_marginRight="16sp"/>
+            android:layout_marginRight="30sp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnConferma"
@@ -39,7 +40,7 @@
             android:layout_below="@+id/testo"
             android:layout_marginTop="@dimen/MarginBetween"
             android:layout_marginBottom="16sp"
-            android:layout_marginRight="16sp"
+            android:layout_marginRight="30sp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true" />
     </RelativeLayout>

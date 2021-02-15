@@ -2,7 +2,10 @@ package com.splashBrothers.abbonium.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.splashBrothers.abbonium.Data.Services.Servizio;
 import com.splashBrothers.abbonium.Data.Services.ServizioInfo;
@@ -86,6 +90,8 @@ public class UniscitiGruppoActivity extends AppCompatActivity {
                 checkBoxContratto.setError(null);
             }
         });
+
+        showAlertDialogInfo("Questa è una versione demo dell'applicazione finale, quindi il pagamento verrà solo simulato");
     }
 
 
@@ -181,6 +187,27 @@ public class UniscitiGruppoActivity extends AppCompatActivity {
             intent.putExtra("utenteAttivo", utenteAttivo);
             startActivity(intent);
         }
+    }
+
+    protected void showAlertDialogInfo(String messaggio) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(UniscitiGruppoActivity.this);
+        View layoutView = getLayoutInflater().inflate(R.layout.alert_dialog_message, null);
+        TextView testo = layoutView.findViewById(R.id.testo);
+        Button btnConferma = layoutView.findViewById(R.id.btnConferma);
+        dialogBuilder.setView(layoutView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        testo.setText(messaggio);
+
+        btnConferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
     }
 
 }

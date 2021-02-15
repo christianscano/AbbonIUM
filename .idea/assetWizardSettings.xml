@@ -314,7 +314,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/share/baseline_share_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/send/baseline_send_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -324,8 +324,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="222831" />
-                            <entry key="outputName" value="ic_baseline_share_24" />
+                            <entry key="color" value="fdffff" />
+                            <entry key="outputName" value="ic_baseline_send_24" />
                             <entry key="sourceFile" value="$USER_HOME$/Desktop/PayPal.svg" />
                           </map>
                         </option>

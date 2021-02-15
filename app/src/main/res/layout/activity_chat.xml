@@ -1,9 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ChatActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="8sp"
+        android:orientation="horizontal"
+        tools:targetApi="lollipop">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:backgroundTint="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/titolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHAT GRUPPO"
+        android:fontFamily="@font/bungee"
+        app:autoSizeTextType="uniform"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="@dimen/MarginLeftRight"
+        android:textSize="@dimen/Titolo"
+        android:textColor="@color/nero" />
+
+    <ScrollView
+        android:id="@+id/listaMessaggi"
+        android:layout_above="@+id/boxScriviMessaggio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titolo"
+        android:layout_marginLeft="@dimen/MarginLeftRight"
+        android:layout_marginRight="@dimen/MarginLeftRight"
+        android:layout_marginBottom="@dimen/MarginLeftRight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgUtente"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    android:layout_alignParentLeft="true" />
+
+                <LinearLayout
+                    android:layout_toRightOf="@id/imgUtente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/MarginBetween"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/MarginBetween"
+                    android:layout_toEndOf="@id/imgUtente">
+
+                    <TextView
+                        android:id="@+id/textPersona"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Luca"
+                        android:textColor="@color/turchese"
+                        android:fontFamily="@font/baloo"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/textMessaggio"
+                        android:background="@drawable/card_nome_utente_draw"
+                        android:padding="12sp"
+                        android:backgroundTint="@color/turchese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo"
+                        android:textSize="@dimen/Text"
+                        android:textColor="@color/white"
+                        android:text="Ciao sono luca" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp">
+
+                <ImageView
+                    android:id="@+id/imgUtente2"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    android:layout_alignParentRight="true" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="@dimen/MarginBetween"
+                    android:layout_toLeftOf="@id/imgUtente2"
+                    android:layout_toStartOf="@id/imgUtente2">
+
+                    <TextView
+                        android:id="@+id/textPersona2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Massimiliano"
+                        android:textColor="@color/nero_200"
+                        android:fontFamily="@font/baloo"
+                        android:textSize="15sp"
+                        android:layout_gravity="right" />
+
+                    <TextView
+                        android:id="@+id/textMessaggio2"
+                        android:background="@drawable/card_nome_utente_draw"
+                        android:padding="12sp"
+                        android:backgroundTint="@color/nero_200"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo"
+                        android:textSize="@dimen/Text"
+                        android:textColor="@color/white"
+                        android:text="Benvenuto luca" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/boxScriviMessaggio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/paddingButton"
+        tools:targetApi="lollipop">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:background="@drawable/card_nome_utente_draw"
+            android:padding="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Scrivi messaggio ..."
+            android:inputType="text"
+            android:layout_toLeftOf="@id/btnInvio"
+            android:layout_centerVertical="true"/>
+
+        <ImageButton
+            android:id="@+id/btnInvio"
+            app:cornerRadius="@dimen/radiusButton"
+            android:src="@drawable/ic_baseline_send_24"
+            android:background="@drawable/button_invio_draw"
+            android:padding="12sp"
+            android:layout_marginLeft="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

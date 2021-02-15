@@ -1,9 +1,14 @@
 package com.splashBrothers.abbonium.Activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,13 +68,17 @@ public class DettagliGruppoUniscitiActivity extends AppCompatActivity {
         });
 
         btnEntra.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DettagliGruppoUniscitiActivity.this, UniscitiGruppoActivity.class);
-                intent.putExtra("utenteAttivo", utenteAttivo);
-                intent.putExtra("servizio", servizio);
-                intent.putExtra("activity", activity);
-                startActivity(intent);
+                if(!utenteAttivo.esisteServizio(servizio.getNomeServizio())) {
+                    Intent intent = new Intent(DettagliGruppoUniscitiActivity.this, UniscitiGruppoActivity.class);
+                    intent.putExtra("utenteAttivo", utenteAttivo);
+                    intent.putExtra("servizio", servizio);
+                    intent.putExtra("activity", activity);
+                    startActivity(intent);
+                } else
+                    showAlertDialogInfo("Partecipi già ad un gruppo per questo servizio");
             }
         });
     }
@@ -92,6 +101,27 @@ public class DettagliGruppoUniscitiActivity extends AppCompatActivity {
         rinnovo.setText("Rinnovo: " + servizio.getFrequenzaRinnovo());
         costo.setText(String.format("Costo: %.2f €", servizio.getCostoSingolo()));
         imgBackground.setImageResource(servizio.getImgSource());
+    }
+
+    protected void showAlertDialogInfo(String messaggio) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(DettagliGruppoUniscitiActivity.this);
+        View layoutView = getLayoutInflater().inflate(R.layout.alert_dialog_message, null);
+        TextView testo = layoutView.findViewById(R.id.testo);
+        Button btnConferma = layoutView.findViewById(R.id.btnConferma);
+        dialogBuilder.setView(layoutView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        testo.setText(messaggio);
+
+        btnConferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
     }
 
 }

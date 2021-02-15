@@ -47,12 +47,12 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
 
         recoveryData();
 
-        caricaDroplist(true, -1);
+        caricaDropList(true, -1);
 
         nomeServizio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                caricaDroplist(false, position);
+                caricaDropList(false, position);
             }
         });
 
@@ -86,12 +86,14 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
      * @param isLoad Se true indica che deve caricare solo la droplist dei servizi
      * @param id Rappresenta l'id del servizio scelto, in caricamento si passa -1
      */
-    protected void caricaDroplist(boolean isLoad, int id) {
+    protected void caricaDropList(boolean isLoad, int id) {
         if(isLoad) {
             ArrayAdapter<String> adapterServizio = new ArrayAdapter<>(this, R.layout.dropdown_item, ServizioInfo.servizi);
             nomeServizio.setAdapter(adapterServizio);
         } else {
             ArrayAdapter<String> adapterFrequenza, adapterRelazione, adapterCosto, adapterPosti;
+
+            clearDropList();
 
             switch(id) {
                 case 0: //NETFLIX
@@ -116,6 +118,13 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
                     break;
             }
         }
+    }
+
+    protected void clearDropList() {
+        frequenza.setText("");
+        tipoRelazione.setText("");
+        costo.setText("");
+        numeroPosti.setText("");
     }
 
     protected String[] generaArrayPosti(int maxPosti) {
@@ -198,7 +207,7 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
             //Se la creazione è andata a buon fine
             if(newServizio != null) {
                 LoginActivity.serviziGlobali.add(newServizio);
-                showAlertDialogInfo("Il gruppo è stato creato correttamente, da adesso potrai troavarlo nella sezione Gruppi", true);
+                showAlertDialogInfo("Il gruppo è stato creato correttamente, da adesso potrai trovarlo nella sezione Gruppi", true);
             }
         }
     }

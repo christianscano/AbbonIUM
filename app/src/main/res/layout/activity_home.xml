@@ -35,10 +35,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginRight="20sp"
         android:layout_marginEnd="20sp"
+        app:borderWidth="@dimen/MarginBetween"
+        app:rippleColor="@color/nero"
+        app:elevation="20sp"
         app:backgroundTint="@color/turchese"
         app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="@color/white"/>
+        app:tint="@color/white"
+        tools:ignore="ContentDescription" />
 </FrameLayout>

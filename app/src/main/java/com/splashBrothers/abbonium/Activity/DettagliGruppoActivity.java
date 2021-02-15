@@ -91,7 +91,10 @@ public class DettagliGruppoActivity extends AppCompatActivity {
         btnApriChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(DettagliGruppoActivity.this, ChatActivity.class);
+                intent.putExtra("utenteAttivo", utenteAttivo);
+                intent.putExtra("servizio", servizio);
+                startActivity(intent);
             }
         });
     }

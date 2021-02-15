@@ -18,6 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.splashBrothers.abbonium.Data.Services.Servizio;
+import com.splashBrothers.abbonium.Data.Utente;
 import com.splashBrothers.abbonium.R;
 
 import java.util.ArrayList;
@@ -32,11 +33,11 @@ public class ListaServiziAdapter extends RecyclerView.Adapter<ListaServiziAdapte
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public ListaServiziAdapter(ArrayList<Servizio> servizi, String emailUtenteAttivo, boolean isPersonal, ListaServiziClickInterface listaServiziClickInterface) {
+    public ListaServiziAdapter(ArrayList<Servizio> servizi, Utente utenteAttivo, boolean isPersonal, ListaServiziClickInterface listaServiziClickInterface) {
         //Controlla se la lista di servizi è gia stata filtrata, quindi se true non c'è bisogno di filtrarla
         if(!isPersonal) {
             serviziDisponibili = servizi.stream()
-                    .filter(s -> !s.getCreatore().equals(emailUtenteAttivo) && s.getMembri().get(emailUtenteAttivo) == null)
+                    .filter(s -> !utenteAttivo.esisteServizio(s.getNomeServizio()))
                     .collect(Collectors.toCollection(ArrayList<Servizio>::new));
             serviziDisponibiliFiltrati = new ArrayList<>(serviziDisponibili);
         } else {

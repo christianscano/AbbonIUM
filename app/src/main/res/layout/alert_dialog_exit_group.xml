@@ -22,15 +22,33 @@
             android:textColor="@color/nero_200"
             android:gravity="center_vertical|center_horizontal"
             android:layout_marginTop="40sp"
-            android:layout_marginLeft="16sp"
+            android:layout_marginLeft="30sp"
             android:layout_marginBottom="10sp"
-            android:layout_marginRight="16sp"/>
+            android:layout_marginRight="30sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNegative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/turchese"
+            android:fontFamily="@font/baloo"
+            android:textSize="@dimen/Text"
+            android:text="NO"
+            android:padding="@dimen/paddingButton"
+            app:cornerRadius="@dimen/radiusButton"
+            android:layout_below="@+id/testo"
+            android:layout_marginTop="@dimen/MarginBetween"
+            android:layout_marginBottom="16sp"
+            android:layout_marginRight="30sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnConferma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/turchese"
+            android:layout_toLeftOf="@id/btnNegative"
             android:fontFamily="@font/baloo"
             android:textSize="@dimen/Text"
             android:text="SI"
@@ -40,25 +58,7 @@
             android:layout_marginTop="@dimen/MarginBetween"
             android:layout_marginBottom="16sp"
             android:layout_marginRight="16sp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNegative"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/turchese"
-            android:layout_toLeftOf="@id/btnConferma"
-            android:fontFamily="@font/baloo"
-            android:textSize="@dimen/Text"
-            android:text="NO"
-            android:padding="@dimen/paddingButton"
-            app:cornerRadius="@dimen/radiusButton"
-            android:layout_below="@+id/testo"
-            android:layout_marginTop="@dimen/MarginBetween"
-            android:layout_marginBottom="16sp"
-            android:layout_marginRight="16sp"
-            android:layout_toStartOf="@id/btnConferma" />
+            android:layout_toStartOf="@id/btnNegative" />
 
 
     </RelativeLayout>

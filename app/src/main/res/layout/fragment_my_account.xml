@@ -6,6 +6,128 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.MyAccountFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/MarginLeftRight">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgUser"
+                android:layout_width="180sp"
+                android:layout_height="180sp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_baseline_account_circle_24"
+                android:layout_marginTop="40sp"/>
+
+            <TextView
+                android:id="@+id/nomeUtente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgUser"
+                android:background="@drawable/card_nome_utente_draw"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="60sp"
+                android:layout_marginStart="60sp"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:text="Prova"
+                android:fontFamily="@font/baloo"
+                android:textColor="@color/nero_200"
+                android:autoSizeTextType="uniform"
+                tools:targetApi="o" />
+
+            <LinearLayout
+                android:id="@+id/boxIntestazione"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nomeUtente"
+                android:orientation="vertical"
+                android:layout_marginTop="50sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:textSize="@dimen/Text"
+                    android:textColor="@color/nero"
+                    android:text="Email:" />
+
+                <TextView
+                    android:id="@+id/textEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:textSize="@dimen/Text"
+                    android:textStyle="italic"
+                    android:singleLine="true"
+                    android:layout_marginTop="@dimen/MarginBetween"
+                    android:textColor="@color/nero_200"
+                    android:text="Email:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:textSize="@dimen/Text"
+                    android:textColor="@color/nero"
+                    android:layout_marginTop="@dimen/MarginBetween"
+                    android:text="Password:" />
+
+                <TextView
+                    android:id="@+id/textPassword"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/Text"
+                    android:textColor="@color/nero_200"
+                    android:layout_marginTop="@dimen/MarginBetween"
+                    android:text="Password:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:textSize="@dimen/Text"
+                    android:textColor="@color/nero"
+                    android:layout_marginTop="@dimen/MarginBetween"
+                    android:text="Data nascita:" />
+
+                <TextView
+                    android:id="@+id/textDataNascita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:textSize="@dimen/Text"
+                    android:textColor="@color/nero_200"
+                    android:textStyle="italic"
+                    android:singleLine="true"
+                    android:layout_marginTop="@dimen/MarginBetween"
+                    android:text="Data nascita:" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cornerRadius="@dimen/radiusButton"
+                android:padding="@dimen/paddingButton"
+                android:fontFamily="@font/baloo"
+                android:textSize="@dimen/Text"
+                android:text="ESCI"
+                android:layout_below="@id/boxIntestazione"
+                android:layout_marginBottom="@dimen/MarginLeftRight"
+                android:layout_marginTop="50sp" />
+        </RelativeLayout>
+
+    </ScrollView>
+
+
 
 
 

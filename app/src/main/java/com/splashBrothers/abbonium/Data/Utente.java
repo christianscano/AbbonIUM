@@ -67,7 +67,13 @@ public class Utente implements Serializable {
 
 
     /* --- FUNZIONI --- */
-    //public rimuoviGruppo(boolean isProprietario, )
+    public boolean esisteServizio(String nomeServizio) {
+        if(myGruppiUnito.get(nomeServizio) == null && myGruppiCreati.get(nomeServizio) == null)
+            return false;
+        return true;
+    }
+
+
 
 
 }

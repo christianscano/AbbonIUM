@@ -67,7 +67,7 @@ public class MyGroupUnitoFragment extends Fragment implements ListaServiziClickI
         listaGruppi.setHasFixedSize(true);
         listaGruppi.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        listaServiziAdapter = new ListaServiziAdapter(new ArrayList<>(utenteAttivo.getMyGruppiUnito().values()), utenteAttivo.getEmail(), true, this);
+        listaServiziAdapter = new ListaServiziAdapter(new ArrayList<>(utenteAttivo.getMyGruppiUnito().values()), utenteAttivo, true, this);
 
         listaGruppi.setAdapter(listaServiziAdapter);
     }

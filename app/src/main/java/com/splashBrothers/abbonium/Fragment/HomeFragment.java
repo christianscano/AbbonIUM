@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment implements ListaServiziClickInterface
         listaServiziGlobali.setHasFixedSize(true); //Imposto la dimensione del recyclerView fissa
         listaServiziGlobali.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        listaServiziAdapter = new ListaServiziAdapter(serviziGlobali, utenteAttivo.getEmail(), false, this);
+        listaServiziAdapter = new ListaServiziAdapter(serviziGlobali, utenteAttivo, false, this);
         listaServiziGlobali.setAdapter(listaServiziAdapter);
 
         //Modifico il font della searchView

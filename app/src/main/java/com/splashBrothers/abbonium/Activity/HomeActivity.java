@@ -1,11 +1,16 @@
 package com.splashBrothers.abbonium.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +31,7 @@ public class HomeActivity extends AppCompatActivity{
 
     Utente utenteAttivo;
     boolean isHome; //serve per capire quale fragment caricare
+    boolean isFirst; //serve per capire se è il primo avvio
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +65,7 @@ public class HomeActivity extends AppCompatActivity{
                         fragment = MyGroupFragment.newInstance(LoginActivity.utentiGlobali, LoginActivity.serviziGlobali, utenteAttivo);
                         break;
                     case R.id.myAccount:
-                        fragment = new MyAccountFragment();
+                        fragment = new MyAccountFragment().newInstance(LoginActivity.utentiGlobali, LoginActivity.serviziGlobali, utenteAttivo);
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentHome, fragment).commit();
@@ -75,6 +81,9 @@ public class HomeActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+
+        if(isFirst)
+            showAlertDialogInfo();
     }
 
     /* --- FUNZIONI SUPPORTO --- */
@@ -83,5 +92,30 @@ public class HomeActivity extends AppCompatActivity{
         Intent intent = getIntent();
         utenteAttivo = (Utente) intent.getSerializableExtra("utenteAttivo");
         isHome = intent.getBooleanExtra("isHome", true);
+        isFirst = intent.getBooleanExtra("isFirst", false);
+    }
+
+    protected void showAlertDialogInfo() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(HomeActivity.this);
+        View layoutView = getLayoutInflater().inflate(R.layout.alert_dialog_message, null);
+        TextView testo = layoutView.findViewById(R.id.testo);
+        Button btnConferma = layoutView.findViewById(R.id.btnConferma);
+        dialogBuilder.setView(layoutView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        testo.setText(Html.fromHtml("Benvenuto su AbbonIUM, in questa schermata potrai " +
+                "visualizzare tutti i gruppi disponibili a cui puoi unirti oppure se vorrai, potrai direttamente" +
+                " creare un tuo gruppo di condivisione\n" + "<b>Attenzione: Questa è una versione demo quindi potrai creare o unirti a gruppi di\n" +
+                "        condivisione NETFLIX o MARVEL UNLIMITED<\b>"));
+
+        btnConferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
     }
 }

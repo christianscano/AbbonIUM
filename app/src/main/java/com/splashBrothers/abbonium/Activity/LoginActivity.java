@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     intent.putExtra("utenteAttivo", utenteAttivo);
+                    intent.putExtra("isFirst", true);
                     startActivity(intent);
                 } else
                     password.setError("Password errata");
