@@ -34,66 +34,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94e395b8-bd5d-4d3c-9600-b22386a1bb65" name="Default Changelist" comment="Registrazione e Login Completati">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/AggiungiGruppoActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/ChatActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/CreazioneGruppoActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/DettagliGruppoActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/DettagliGruppoUniscitiActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/ListaServiziClickInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/UniscitiGruppoActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Fragment/MyGroupCreatiFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Fragment/MyGroupFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Fragment/MyGroupUnitoFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_share_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_paypal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_aggiungi_gruppo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_creazione_gruppo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_dettagli_gruppo_unisciti.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_unisciti_gruppo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_exit_group.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_link.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_message.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dropdown_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_group_creati.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_mygroup_unito.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/bottom_nav_view_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/radio_button_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/tab_layout_item_style.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_13_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/AbbonIUM.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/AbbonIUM.app.iml" afterDir="false" />
+    <list default="true" id="94e395b8-bd5d-4d3c-9600-b22386a1bb65" name="Default Changelist" comment="Unisci Gruppo, Dettagli, Link">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/GenerateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/GenerateData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/Servizio.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/Servizio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/ServizioInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/ServizioInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/ServizioMarvelUnlimited.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/ServizioMarvelUnlimited.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/ServizioNetflix.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Services/ServizioNetflix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Data/Utente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/HomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/HomeFragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Fragment/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/HomeFragment/MyAccountFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Fragment/MyAccountFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/HomeFragment/MyGroupFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/ListaServiziHomeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/ListaServiziAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/RegistrazioneActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/splashBrothers/abbonium/Activity/RegistrazioneActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/button_draw.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_dettagli_gruppo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_dettagli_gruppo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_registrazione.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_registrazione.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_gruppo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_gruppo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_group.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_group.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/size.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/size.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613156741706</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Unisci Gruppo, Dettagli, Link">
+      <created>1613385603642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1613385603642</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -292,7 +241,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Registrazione e Login Completati" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registrazione e Login Completati" />
+    <MESSAGE value="Unisci Gruppo, Dettagli, Link" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unisci Gruppo, Dettagli, Link" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="233" key="#com.intellij.ide.util.MemberChooser" timestamp="1613316188676">
@@ -349,49 +299,49 @@
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
     <state x="544" y="248" key="Github.UntrackedFilesDialog/0.25.1792.1040@0.25.1792.1040" timestamp="1613043840688" />
-    <state width="1748" height="280" key="GridCell.Tab.0.bottom" timestamp="1613349925411">
+    <state width="1748" height="280" key="GridCell.Tab.0.bottom" timestamp="1613385690302">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.0.bottom/0.25.1792.1040@0.25.1792.1040" timestamp="1613349925411" />
+    <state width="1748" height="280" key="GridCell.Tab.0.bottom/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690302" />
     <state width="1748" height="299" key="GridCell.Tab.0.bottom/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613259480400" />
     <state width="1748" height="281" key="GridCell.Tab.0.bottom/0.25.1920.1055/-1792.107.1792.1040@-1792.107.1792.1040" timestamp="1613227538117" />
-    <state width="1748" height="280" key="GridCell.Tab.0.center" timestamp="1613349925410">
+    <state width="1748" height="280" key="GridCell.Tab.0.center" timestamp="1613385690301">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.0.center/0.25.1792.1040@0.25.1792.1040" timestamp="1613349925410" />
+    <state width="1748" height="280" key="GridCell.Tab.0.center/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690301" />
     <state width="1748" height="299" key="GridCell.Tab.0.center/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613259480399" />
     <state width="1748" height="281" key="GridCell.Tab.0.center/0.25.1920.1055/-1792.107.1792.1040@-1792.107.1792.1040" timestamp="1613227538116" />
-    <state width="1748" height="280" key="GridCell.Tab.0.left" timestamp="1613349925410">
+    <state width="1748" height="280" key="GridCell.Tab.0.left" timestamp="1613385690301">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.0.left/0.25.1792.1040@0.25.1792.1040" timestamp="1613349925410" />
+    <state width="1748" height="280" key="GridCell.Tab.0.left/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690301" />
     <state width="1748" height="299" key="GridCell.Tab.0.left/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613259480399" />
     <state width="1748" height="281" key="GridCell.Tab.0.left/0.25.1920.1055/-1792.107.1792.1040@-1792.107.1792.1040" timestamp="1613227538116" />
-    <state width="1748" height="280" key="GridCell.Tab.0.right" timestamp="1613349925411">
+    <state width="1748" height="280" key="GridCell.Tab.0.right" timestamp="1613385690302">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.0.right/0.25.1792.1040@0.25.1792.1040" timestamp="1613349925411" />
+    <state width="1748" height="280" key="GridCell.Tab.0.right/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690302" />
     <state width="1748" height="299" key="GridCell.Tab.0.right/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613259480400" />
     <state width="1748" height="281" key="GridCell.Tab.0.right/0.25.1920.1055/-1792.107.1792.1040@-1792.107.1792.1040" timestamp="1613227538117" />
-    <state width="1748" height="280" key="GridCell.Tab.1.bottom" timestamp="1613349835892">
+    <state width="1748" height="280" key="GridCell.Tab.1.bottom" timestamp="1613385690303">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.1.bottom/0.25.1792.1040@0.25.1792.1040" timestamp="1613349835892" />
+    <state width="1748" height="280" key="GridCell.Tab.1.bottom/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690303" />
     <state width="1748" height="299" key="GridCell.Tab.1.bottom/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613258050393" />
-    <state width="1748" height="280" key="GridCell.Tab.1.center" timestamp="1613349835892">
+    <state width="1748" height="280" key="GridCell.Tab.1.center" timestamp="1613385690302">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.1.center/0.25.1792.1040@0.25.1792.1040" timestamp="1613349835892" />
+    <state width="1748" height="280" key="GridCell.Tab.1.center/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690302" />
     <state width="1748" height="299" key="GridCell.Tab.1.center/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613258050392" />
-    <state width="1748" height="280" key="GridCell.Tab.1.left" timestamp="1613349835891">
+    <state width="1748" height="280" key="GridCell.Tab.1.left" timestamp="1613385690302">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.1.left/0.25.1792.1040@0.25.1792.1040" timestamp="1613349835891" />
+    <state width="1748" height="280" key="GridCell.Tab.1.left/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690302" />
     <state width="1748" height="299" key="GridCell.Tab.1.left/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613258050392" />
-    <state width="1748" height="280" key="GridCell.Tab.1.right" timestamp="1613349835892">
+    <state width="1748" height="280" key="GridCell.Tab.1.right" timestamp="1613385690303">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state width="1748" height="280" key="GridCell.Tab.1.right/0.25.1792.1040@0.25.1792.1040" timestamp="1613349835892" />
+    <state width="1748" height="280" key="GridCell.Tab.1.right/0.25.1792.1040@0.25.1792.1040" timestamp="1613385690303" />
     <state width="1748" height="299" key="GridCell.Tab.1.right/0.25.1920.1000/-1792.107.1792.1095@-1792.107.1792.1095" timestamp="1613258050392" />
     <state x="483" y="292" key="IDE.errors.dialog" timestamp="1613045451768">
       <screen x="0" y="25" width="1792" height="1040" />
@@ -405,10 +355,10 @@
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.25.1792.1040@0.25.1792.1040" timestamp="1612470668489" />
-    <state x="496" y="282" key="Vcs.Push.Dialog.v2" timestamp="1613157354670">
+    <state x="496" y="282" key="Vcs.Push.Dialog.v2" timestamp="1613385611461">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
-    <state x="496" y="282" key="Vcs.Push.Dialog.v2/0.25.1792.1040@0.25.1792.1040" timestamp="1613157354670" />
+    <state x="496" y="282" key="Vcs.Push.Dialog.v2/0.25.1792.1040@0.25.1792.1040" timestamp="1613385611461" />
     <state x="686" y="331" key="chooseDestDirectoryDialog" timestamp="1612458557452">
       <screen x="0" y="25" width="1792" height="1040" />
     </state>
