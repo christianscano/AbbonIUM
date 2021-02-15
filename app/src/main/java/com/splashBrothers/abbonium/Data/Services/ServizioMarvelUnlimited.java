@@ -1,11 +1,18 @@
 package com.splashBrothers.abbonium.Data.Services;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.splashBrothers.abbonium.Data.Utente;
 
-public class ServizioMarvelUnlimited extends Servizio {
+import java.io.Serializable;
 
-    public ServizioMarvelUnlimited(double costoTotale, ServizioInfo.TipoRinnovo tipoRinnovo, ServizioInfo.TipoRelazione tipoRelazione,
-                                    int maxPosti, Utente proprietario) {
+public class ServizioMarvelUnlimited extends Servizio implements Serializable {
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public ServizioMarvelUnlimited(double costoTotale, String tipoRinnovo, String tipoRelazione,
+                                   int maxPosti, Utente proprietario) {
         super(
                 ServizioInfo.InfoMarvelUnlimited.nomeServizio,
                 ServizioInfo.InfoMarvelUnlimited.imgSource,

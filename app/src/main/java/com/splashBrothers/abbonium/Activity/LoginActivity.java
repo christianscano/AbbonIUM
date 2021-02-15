@@ -1,8 +1,10 @@
-package com.splashBrothers.abbonium;
+package com.splashBrothers.abbonium.Activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import com.splashBrothers.abbonium.Data.GenerateData;
 import com.splashBrothers.abbonium.Data.Services.Servizio;
 import com.splashBrothers.abbonium.Data.Utente;
+import com.splashBrothers.abbonium.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView btnRegistrati;
     Utente utenteAttivo;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                     password.setError(null);
 
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    intent.putExtra("UtenteAttivo", utenteAttivo);
+                    intent.putExtra("utenteAttivo", utenteAttivo);
                     startActivity(intent);
                 } else
                     password.setError("Password errata");
@@ -100,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     protected void generaDatiIniziali() {
         if(utentiGlobali == null || serviziGlobali == null) {
             utentiGlobali = GenerateData.generaUtenti();

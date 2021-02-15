@@ -1,5 +1,9 @@
 package com.splashBrothers.abbonium.Data;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.splashBrothers.abbonium.Data.Services.Servizio;
 import com.splashBrothers.abbonium.Data.Services.ServizioInfo;
 import com.splashBrothers.abbonium.Data.Services.ServizioMarvelUnlimited;
@@ -9,19 +13,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GenerateData {
+    @RequiresApi(api = Build.VERSION_CODES.N)
     static public ArrayList<Servizio> generaServizi(HashMap<String, Utente> utentiGlobali) {
         ArrayList<Servizio> myServizi = new ArrayList<>();
 
         myServizi.add(new ServizioNetflix(
-                ServizioInfo.InfoNetflix.costoTotale[0],
+                Double.parseDouble(ServizioInfo.InfoNetflix.costoTotale[0]),
                 ServizioInfo.InfoNetflix.tipoRinnovo[0],
                 ServizioInfo.InfoNetflix.tipoRelazione[0],
                 ServizioInfo.InfoNetflix.maxPosti,
                 utentiGlobali.get("cri.maro99@outlook.it")
         ));
 
+        myServizi.get(0).setLinkCondivisione("abbonium/1234");
+
         myServizi.add(new ServizioMarvelUnlimited(
-                ServizioInfo.InfoMarvelUnlimited.costoTotale[0],
+                Double.parseDouble(ServizioInfo.InfoMarvelUnlimited.costoTotale[0]),
                 ServizioInfo.InfoMarvelUnlimited.tipoRinnovo[0],
                 ServizioInfo.InfoMarvelUnlimited.tipoRelazione[0],
                 ServizioInfo.InfoMarvelUnlimited.maxPosti,

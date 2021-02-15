@@ -1,4 +1,4 @@
-package com.splashBrothers.abbonium;
+package com.splashBrothers.abbonium.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,11 +13,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.splashBrothers.abbonium.Data.Utente;
+import com.splashBrothers.abbonium.R;
 
 import java.util.Calendar;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class RegistrazioneActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 

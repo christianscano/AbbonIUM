@@ -4,6 +4,7 @@ import com.splashBrothers.abbonium.Data.Services.Servizio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Utente implements Serializable {
     String nome;
@@ -13,8 +14,8 @@ public class Utente implements Serializable {
     String dataNascita;
     String emailPayPal;  //email pagamento
 
-    ArrayList<Servizio> myGruppiUnito;
-    ArrayList<Servizio> myGruppiCreati;
+    HashMap<String, Servizio> myGruppiUnito;
+    HashMap<String, Servizio> myGruppiCreati;
 
     public Utente(String nome, String cognome, String password, String email, String dataNascita,  String emailPaypal) {
         this.password = password;
@@ -23,6 +24,9 @@ public class Utente implements Serializable {
         this.cognome = cognome;
         this.email = email;
         this.emailPayPal = emailPaypal;
+
+        myGruppiCreati = new HashMap<>();
+        myGruppiUnito = new HashMap<>();
     }
 
     public String getNome() {
@@ -45,10 +49,6 @@ public class Utente implements Serializable {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getDataNascita() {
         return dataNascita;
     }
@@ -56,5 +56,18 @@ public class Utente implements Serializable {
     public String getEmailPayPal() {
         return emailPayPal;
     }
+
+    public HashMap<String, Servizio> getMyGruppiUnito() {
+        return myGruppiUnito;
+    }
+
+    public HashMap<String, Servizio> getMyGruppiCreati() {
+        return myGruppiCreati;
+    }
+
+
+    /* --- FUNZIONI --- */
+    //public rimuoviGruppo(boolean isProprietario, )
+
 
 }

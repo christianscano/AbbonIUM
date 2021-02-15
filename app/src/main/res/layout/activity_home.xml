@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Activity.HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,6 +17,8 @@
             android:layout_above="@id/bottomNavBar"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:itemTextAppearanceActive="@style/BottomNavView"
+            app:itemTextAppearanceInactive="@style/BottomNavView"
             android:id="@+id/bottomNavBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

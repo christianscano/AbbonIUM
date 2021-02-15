@@ -3,6 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment.MyGroupFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.MyGroupFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabView"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:tabIndicatorColor="@color/turchese"
+            app:tabSelectedTextColor="@color/turchese"
+            app:tabTextAppearance="@style/TabLayouyItem">
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:background="@color/grigio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tabView" />
+
+    </RelativeLayout>
 
 </FrameLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TabLayouyItem" parent="Widget.MaterialComponents.TabLayout">
+        <item name="fontFamily">@font/baloo</item>
+        <item name="android:textSize">@dimen/Text</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+</resources>

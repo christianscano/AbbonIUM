@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Activity.DettagliGruppoActivity">
+    tools:context=".Activity.DettagliGruppoUniscitiActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
-        android:elevation="8sp"
+        android:elevation="20sp"
         android:orientation="horizontal"
         tools:targetApi="lollipop">
 
@@ -24,31 +24,12 @@
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="60sp"
-            android:id="@+id/btnExitGroup"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_baseline_exit_to_app_24"
-            android:backgroundTint="@color/white" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="60sp"
-            android:id="@+id/btnShareGroup"
-            android:layout_toLeftOf="@id/btnExitGroup"
-            android:src="@drawable/ic_baseline_share_24"
-            android:backgroundTint="@color/white"
-            android:layout_toStartOf="@id/btnExitGroup" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:background="@color/grigio">
+        android:layout_below="@+id/toolbar" >
 
         <ImageView
             android:id="@+id/imgBackground"
@@ -56,7 +37,7 @@
             android:layout_height="220sp"
             android:src="@drawable/netflix_image"
             android:adjustViewBounds="true"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/textNomeUtente"
@@ -137,7 +118,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnApriChat"
+            android:id="@+id/btnEntraGruppo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -147,7 +128,7 @@
             app:cornerRadius="@dimen/radiusButton"
             android:padding="@dimen/paddingButton"
             app:backgroundTint="@color/turchese"
-            android:text="APRI CHAT"
+            android:text="ENTRA NEL GRUPPO"
             android:textSize="@dimen/Text"
             android:fontFamily="@font/baloo"/>
     </RelativeLayout>

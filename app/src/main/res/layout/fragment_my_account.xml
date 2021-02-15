@@ -3,12 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment.MyAccountFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.MyAccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <include layout="@layout/card_gruppo"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+
 
 
 

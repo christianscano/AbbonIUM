@@ -9,14 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AbbonIUM">
-        <activity android:name=".RegistrazioneActivity"/>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Activity.ChatActivity"></activity>
+        <activity android:name=".Activity.DettagliGruppoActivity" />
+        <activity android:name=".Activity.DettagliGruppoUniscitiActivity" />
+        <activity android:name=".Activity.UniscitiGruppoActivity" />
+        <activity android:name=".Activity.AggiungiGruppoActivity" />
+        <activity android:name=".Activity.CreazioneGruppoActivity" />
+        <activity android:name=".Activity.RegistrazioneActivity" />
+        <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"/>
+        <activity
+            android:name=".Activity.HomeActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
+
 </manifest>

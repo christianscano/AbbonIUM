@@ -1,4 +1,4 @@
-package com.splashBrothers.abbonium.HomeFragment;
+package com.splashBrothers.abbonium.Fragment;
 
 import android.os.Bundle;
 

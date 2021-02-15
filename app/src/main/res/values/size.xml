@@ -4,4 +4,6 @@
     <dimen name="Text">20sp</dimen>
     <dimen name="MarginLeftRight">20sp</dimen>
     <dimen name="MarginBetween">10sp</dimen>
+    <dimen name="paddingButton">10sp</dimen>
+    <dimen name="radiusButton">30sp</dimen>
 </resources>

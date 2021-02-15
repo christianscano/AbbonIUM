@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment.HomeFragment">
+    tools:context=".Fragment.HomeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
-            android:elevation="8sp"
+            android:elevation="11sp"
             android:orientation="horizontal"
             tools:targetApi="lollipop">
 
@@ -32,27 +32,18 @@
                 android:id="@+id/searchBar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:queryBackground="@null"
-                android:iconifiedByDefault="false"
-                android:queryHint="Inserisci Categoria"
                 android:layout_toRightOf="@id/imgLogo"
+                android:layout_marginRight="50sp"
+                android:iconifiedByDefault="false"
+                android:queryBackground="@null"
+                android:queryHint="Inserisci Categoria"
                 android:layout_toEndOf="@id/imgLogo" />
-
-            <ImageButton
-                android:id="@+id/btnInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_baseline_info_24"
-                android:backgroundTint="@color/white"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/toolbar"
-            android:background="@color/grigio">
+            android:layout_below="@id/toolbar" >
 
             <TextView
                 android:id="@+id/textBenvenuto"
@@ -63,24 +54,18 @@
                 android:textSize="@dimen/Titolo"
                 android:singleLine="true"
                 android:textColor="@color/nero"
-                android:layout_marginTop="10sp"
                 android:fontFamily="@font/baloo"
-                android:layout_marginLeft="@dimen/MarginLeftRight"
-                android:layout_marginRight="@dimen/MarginLeftRight"
+                android:layout_margin="@dimen/MarginLeftRight"
                 tools:targetApi="o" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_below="@id/textBenvenuto"
                 android:id="@+id/listaGruppiDisponibili"
-                android:layout_marginTop="5sp"
                 android:layout_marginLeft="@dimen/MarginLeftRight"
                 android:layout_marginRight="@dimen/MarginLeftRight"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
         </RelativeLayout>
-
-
     </RelativeLayout>
-
 </FrameLayout>

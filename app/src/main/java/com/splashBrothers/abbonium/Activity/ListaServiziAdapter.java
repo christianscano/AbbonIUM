@@ -1,6 +1,9 @@
-package com.splashBrothers.abbonium;
+package com.splashBrothers.abbonium.Activity;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Debug;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,23 +11,40 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.splashBrothers.abbonium.Data.Services.Servizio;
+import com.splashBrothers.abbonium.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
-public class ListaServiziHomeAdapter extends RecyclerView.Adapter<ListaServiziHomeAdapter.ServizioHolder> implements Filterable {
+public class ListaServiziAdapter extends RecyclerView.Adapter<ListaServiziAdapter.ServizioHolder> implements Filterable {
 
     ArrayList<Servizio> serviziDisponibili;
     ArrayList<Servizio> serviziDisponibiliFiltrati;
+    ListaServiziClickInterface listaServiziClickInterface;
 
-    public ListaServiziHomeAdapter(ArrayList<Servizio> servizi) {
-        serviziDisponibili = servizi;
-        serviziDisponibiliFiltrati = new ArrayList<>(servizi);
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public ListaServiziAdapter(ArrayList<Servizio> servizi, String emailUtenteAttivo, boolean isPersonal, ListaServiziClickInterface listaServiziClickInterface) {
+        //Controlla se la lista di servizi è gia stata filtrata, quindi se true non c'è bisogno di filtrarla
+        if(!isPersonal) {
+            serviziDisponibili = servizi.stream()
+                    .filter(s -> !s.getCreatore().equals(emailUtenteAttivo) && s.getMembri().get(emailUtenteAttivo) == null)
+                    .collect(Collectors.toCollection(ArrayList<Servizio>::new));
+            serviziDisponibiliFiltrati = new ArrayList<>(serviziDisponibili);
+        } else {
+            serviziDisponibili = servizi;
+            serviziDisponibiliFiltrati = new ArrayList<Servizio>(serviziDisponibili);
+        }
+
+        this.listaServiziClickInterface = listaServiziClickInterface;
     }
 
     @NonNull
@@ -35,7 +55,7 @@ public class ListaServiziHomeAdapter extends RecyclerView.Adapter<ListaServiziHo
         return holder;
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     public void onBindViewHolder(@NonNull ServizioHolder holder, int position) {
         Servizio servizio = serviziDisponibiliFiltrati.get(position);
@@ -44,14 +64,21 @@ public class ListaServiziHomeAdapter extends RecyclerView.Adapter<ListaServiziHo
         holder.nomeServizio.setText(servizio.getNomeServizio());
 
         switch (servizio.getFrequenzaRinnovo()) {
-            case MENSILE:
-                holder.costo.setText(servizio.getCostoTotale() + "€ al mese");
+            case "Mensile":
+                holder.costo.setText(String.format("%.2f € al mese", servizio.getCostoSingolo()));
                 break;
-            case ANNUALE:
-                holder.costo.setText(servizio.getCostoTotale() + "€ all'anno");
+            case "Annuale":
+                holder.costo.setText(String.format("%.2f € all'anno", servizio.getCostoSingolo()));
         }
 
         holder.nPosti.setText(servizio.getMaxPosti() - servizio.getnPosti() + "/" + servizio.getMaxPosti() + " Posti liberi");
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listaServiziClickInterface.onItemClick(servizio);
+            }
+        });
     }
 
     /* --- FILTRO --- */

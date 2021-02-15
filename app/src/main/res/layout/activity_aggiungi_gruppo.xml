@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AggiungiGruppoActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="8sp"
+        android:orientation="horizontal"
+        tools:targetApi="lollipop">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:backgroundTint="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="@dimen/MarginLeftRight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="COSA VUOI FARE?"
+                app:autoSizeTextType="uniform"
+                android:fontFamily="@font/bungee"
+                android:textSize="@dimen/Titolo"
+                android:textColor="@color/nero" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Creare un gruppo da zero"
+                android:fontFamily="@font/baloo"
+                android:textSize="25sp"
+                app:autoSizeTextType="uniform"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="@dimen/MarginBetween"
+                android:layout_marginBottom="@dimen/MarginLeftRight"
+                android:textColor="@color/nero_200" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreaGruppo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cornerRadius="@dimen/radiusButton"
+                android:padding="@dimen/paddingButton"
+                app:backgroundTint="@color/turchese"
+                android:fontFamily="@font/baloo"
+                android:text="Crea nuovo gruppo"
+                android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
+                android:layout_marginBottom="@dimen/MarginBetween" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3sp"
+                android:background="@color/grigio"
+                android:layout_margin="@dimen/MarginLeftRight"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unirti ad un gruppo già esistente"
+                android:fontFamily="@font/baloo"
+                android:textColor="@color/nero_200"
+                android:textSize="25sp"
+                android:layout_marginTop="@dimen/MarginBetween"
+                android:layout_marginBottom="@dimen/MarginBetween"
+                android:justificationMode="inter_word"
+                app:autoSizeTextType="uniform"
+                tools:targetApi="o" />
+
+            <EditText
+                android:id="@+id/textLinkInvito"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/baloo"
+                android:textSize="25sp"
+                app:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeMinTextSize="15sp"
+                android:textColor="@color/nero_200"
+                android:hint="Inserisci link invito..."
+                tools:targetApi="o" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUniscitiLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cornerRadius="@dimen/radiusButton"
+                android:padding="@dimen/paddingButton"
+                app:backgroundTint="@color/turchese"
+                android:fontFamily="@font/baloo"
+                android:text="Unisciti"
+                android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
+                android:layout_marginTop="@dimen/MarginLeftRight"
+                android:layout_marginBottom="@dimen/MarginLeftRight"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

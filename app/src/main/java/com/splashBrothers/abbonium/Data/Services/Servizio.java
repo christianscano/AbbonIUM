@@ -1,26 +1,33 @@
 package com.splashBrothers.abbonium.Data.Services;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.splashBrothers.abbonium.Data.Utente;
-import com.splashBrothers.abbonium.LoginActivity;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Random;
 
 
-abstract public class Servizio {
+abstract public class Servizio implements Serializable {
     String nomeServizio;
     int imgSource;
     double costoTotale;
-    ServizioInfo.TipoRinnovo frequenzaRinnovo;
+    String frequenzaRinnovo;
     int nPosti; //posti disponibili
     int maxPosti;
-    ServizioInfo.TipoRelazione tipoRelazione;
+    String tipoRelazione;
+    String linkCondivisione;
 
     String creatore; //email del creatore
     HashMap<String, Utente> membri;
 
-    public Servizio(String nomeServizio, int imgSource, double costoTotale, ServizioInfo.TipoRinnovo frequenzaRinnovo,
-                    ServizioInfo.TipoRelazione tipoRelazione, int maxPosti, Utente proprietario) {
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public Servizio(String nomeServizio, int imgSource, double costoTotale, String frequenzaRinnovo,
+                    String tipoRelazione, int maxPosti, Utente proprietario) {
         this.nomeServizio = nomeServizio;
         this.imgSource = imgSource;
         this.costoTotale = costoTotale;
@@ -28,6 +35,8 @@ abstract public class Servizio {
         this.nPosti = 0;
         this.maxPosti = maxPosti;
         this.tipoRelazione = tipoRelazione;
+
+        linkCondivisione = "abbonium/" + generaLinkCondivisione();
 
         creatore = proprietario.getEmail();
         membri = new HashMap<>();
@@ -38,75 +47,78 @@ abstract public class Servizio {
         return nomeServizio;
     }
 
-    public void setNomeServizio(String nomeServizio) {
-        this.nomeServizio = nomeServizio;
-    }
-
     public int getImgSource() {
         return imgSource;
-    }
-
-    public void setImgSource(int imgSource) {
-        this.imgSource = imgSource;
     }
 
     public double getCostoTotale() {
         return costoTotale;
     }
 
-    public void setCostoTotale(double costoTotale) {
-        this.costoTotale = costoTotale;
-    }
-
-    public ServizioInfo.TipoRinnovo getFrequenzaRinnovo() {
+    public String getFrequenzaRinnovo() {
         return frequenzaRinnovo;
-    }
-
-    public void setFrequenzaRinnovo(ServizioInfo.TipoRinnovo frequenzaRinnovo) {
-        this.frequenzaRinnovo = frequenzaRinnovo;
     }
 
     public int getnPosti() {
         return nPosti;
     }
 
-    public void setnPosti(int nPosti) {
-        this.nPosti = nPosti;
-    }
-
-    public ServizioInfo.TipoRelazione getTipoRelazione() {
+    public String getTipoRelazione() {
         return tipoRelazione;
-    }
-
-    public void setTipoRelazione(ServizioInfo.TipoRelazione tipoRelazione) {
-        this.tipoRelazione = tipoRelazione;
     }
 
     public String getCreatore() {
         return creatore;
     }
 
-    public void setCreatore(String creatore) {
-        this.creatore = creatore;
-    }
-
     public HashMap<String, Utente> getMembri() {
         return membri;
-    }
-
-    public void setMembri(HashMap<String, Utente> membri) {
-        this.membri = membri;
     }
 
     public int getMaxPosti() {
         return maxPosti;
     }
 
-    public void setMaxPosti(int maxPosti) {
-        this.maxPosti = maxPosti;
+    public double getCostoSingolo() {
+        return Math.round((costoTotale / (maxPosti + 1)) * 100.0) / 100.0;
     }
 
-    public double getCostoSingolo() {
-        return costoTotale / (maxPosti + 1);
+    public String getLinkCondivisione() {
+        return linkCondivisione;
+    }
+
+    public void setLinkCondivisione(String link) {
+        linkCondivisione = link;
+    }
+
+
+    /* --- FUNZIONI --- */
+
+    public void aggiungiMembro(Utente newMembro) {
+        membri.put(newMembro.getEmail(), newMembro);
+        nPosti++;
+    }
+
+    public boolean rimuoviMembro(Utente membro) {
+        if(membri.remove(membro.getEmail()) != null) {
+            nPosti--;
+            return true;
+        }
+
+        return false;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private String generaLinkCondivisione() {
+        int leftLimit = 48; // numeral '0'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        return random.ints(leftLimit, rightLimit + 1)
+                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
     }
 }

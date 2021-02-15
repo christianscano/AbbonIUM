@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.UniscitiGruppoActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="8sp"
+        android:orientation="horizontal"
+        tools:targetApi="lollipop">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:backgroundTint="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="@dimen/MarginLeftRight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ENTRA NEL GRUPPO"
+                app:autoSizeTextType="uniform"
+                android:fontFamily="@font/bungee"
+                android:textSize="@dimen/Titolo"
+                android:textColor="@color/nero" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:autoSizeTextType="uniform"
+                android:layout_marginTop="@dimen/MarginBetween"
+                android:fontFamily="@font/baloo"
+                android:textSize="@dimen/Text"
+                android:textColor="@color/nero_200"
+                android:textStyle="italic"
+                android:text="Dichiara la relazione che hai con l'admin per unirti al gruppo"
+                android:justificationMode="inter_word" />
+
+           <RadioGroup
+               android:id="@+id/radioGroupRelazione"
+               android:layout_marginTop="@dimen/MarginBetween"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layoutDirection="rtl"
+               tools:targetApi="jelly_bean_mr1">
+
+               <com.google.android.material.radiobutton.MaterialRadioButton
+                   android:id="@+id/radioBtnAmici"
+                   android:enabled="false"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   style="@style/RadioButton"
+                   android:textSize="@dimen/Text"
+                   android:fontFamily="@font/baloo"
+                   android:textColor="@color/nero_200"
+                   android:padding="@dimen/MarginBetween"
+                   android:text="Amici" />
+
+               <com.google.android.material.radiobutton.MaterialRadioButton
+                   android:id="@+id/radioBtnFamiglia"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:enabled="false"
+                   style="@style/RadioButton"
+                   android:textSize="@dimen/Text"
+                   android:fontFamily="@font/baloo"
+                   android:textColor="@color/nero_200"
+                   android:padding="@dimen/MarginBetween"
+                   android:text="Famiglia" />
+
+               <com.google.android.material.radiobutton.MaterialRadioButton
+                   android:id="@+id/radioBtnStessoNucleo"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   style="@style/RadioButton"
+                   android:enabled="false"
+                   android:textSize="@dimen/Text"
+                   android:padding="@dimen/MarginBetween"
+                   android:fontFamily="@font/baloo"
+                   android:textColor="@color/nero_200"
+                   android:text="Stesso nucleo domestico" />
+
+               <com.google.android.material.radiobutton.MaterialRadioButton
+                   android:id="@+id/radioBtnTeam"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   style="@style/RadioButton"
+                   android:enabled="false"
+                   android:padding="@dimen/MarginBetween"
+                   android:textSize="@dimen/Text"
+                   android:fontFamily="@font/baloo"
+                   android:textColor="@color/nero_200"
+                   android:text="Team di lavoro" />
+           </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3sp"
+                android:background="@color/grigio"
+                android:layout_margin="@dimen/MarginLeftRight"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Paga con"
+                android:fontFamily="@font/baloo"
+                android:textColor="@color/nero_200"
+                android:textSize="25sp"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radioBtnPaypal"
+                android:layout_marginTop="@dimen/MarginBetween"
+                android:layout_marginBottom="@dimen/MarginBetween"
+                app:buttonTint="@color/turchese"
+                android:checked="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_paypal"
+                android:drawableStart="@drawable/ic_paypal"
+                android:padding="10dip" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3sp"
+                android:background="@color/grigio"
+                android:layout_margin="@dimen/MarginLeftRight"
+                tools:ignore="SmallSp" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkboxConfermaContratto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
+                android:textSize="@dimen/Text"
+                android:textColor="@color/nero_200"
+                app:autoSizeTextType="uniform"
+                android:textStyle="italic"
+                android:gravity="center_vertical"
+                android:paddingRight="10sp"
+                android:text="Confermo di aver letto e rispettare le regole di NOME SERVZIO"
+                android:layoutDirection="rtl"
+                style="@style/RadioButton"
+                tools:targetApi="o" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEntra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/MarginLeftRight"
+                android:layout_marginBottom="@dimen/MarginLeftRight"
+                android:backgroundTint="@color/turchese"
+                app:cornerRadius="@dimen/radiusButton"
+                android:padding="@dimen/paddingButton"
+                android:text="ENTRA"
+                android:fontFamily="@font/baloo"
+                android:textSize="@dimen/Text" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrazioneActivity">
+    android:background="@color/white"
+    tools:context=".Activity.RegistrazioneActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -42,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="REGISTRAZIONE"
                 android:fontFamily="@font/bungee"
+                app:autoSizeTextType="uniform"
                 android:textSize="@dimen/Titolo"
                 android:textColor="@color/nero" />
 
@@ -50,8 +52,9 @@
                 android:layout_height="wrap_content"
                 android:text="Nome:"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:fontFamily="@font/baloo"
-                android:textColor="@color/nero"
+                android:textColor="@color/turchese"
                 android:layout_marginTop="@dimen/MarginBetween"/>
 
             <EditText
@@ -60,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:inputType="textPersonName"
                 android:textColor="@color/nero_200"
                 android:hint="Inserisci nome..." />
@@ -69,8 +73,9 @@
                 android:layout_height="wrap_content"
                 android:text="Cognome:"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:fontFamily="@font/baloo"
-                android:textColor="@color/nero"
+                android:textColor="@color/turchese"
                 android:layout_marginTop="@dimen/MarginBetween"/>
 
             <EditText
@@ -80,6 +85,7 @@
                 android:fontFamily="@font/baloo"
                 android:inputType="textPersonName"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:textColor="@color/nero_200"
                 android:hint="Inserisci cognome..." />
 
@@ -88,8 +94,9 @@
                 android:layout_height="wrap_content"
                 android:text="Data Nascita:"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:fontFamily="@font/baloo"
-                android:textColor="@color/nero"
+                android:textColor="@color/turchese"
                 android:layout_marginTop="@dimen/MarginBetween"/>
 
             <EditText
@@ -98,8 +105,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:clickable="true"
                 android:focusable="false"
+                android:inputType="date"
                 android:textColor="@color/nero_200"
                 android:hint="Inserisci data nascita..." />
 
@@ -108,8 +117,9 @@
                 android:layout_height="wrap_content"
                 android:text="Email:"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:fontFamily="@font/baloo"
-                android:textColor="@color/nero"
+                android:textColor="@color/turchese"
                 android:layout_marginTop="@dimen/MarginBetween"/>
 
             <EditText
@@ -119,6 +129,7 @@
                 android:fontFamily="@font/baloo"
                 android:inputType="textEmailAddress"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:textColor="@color/nero_200"
                 android:hint="Inserisci email..." />
 
@@ -127,8 +138,9 @@
                 android:layout_height="wrap_content"
                 android:text="Email Paypal:"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:fontFamily="@font/baloo"
-                android:textColor="@color/nero"
+                android:textColor="@color/turchese"
                 android:layout_marginTop="@dimen/MarginBetween"/>
 
             <EditText
@@ -138,6 +150,7 @@
                 android:fontFamily="@font/baloo"
                 android:inputType="textEmailAddress"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:textColor="@color/nero_200"
                 android:hint="Inserisci email paypal..." />
 
@@ -146,8 +159,9 @@
                 android:layout_height="wrap_content"
                 android:text="Password:"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:fontFamily="@font/baloo"
-                android:textColor="@color/nero"
+                android:textColor="@color/turchese"
                 android:layout_marginTop="@dimen/MarginBetween"/>
 
             <EditText
@@ -156,6 +170,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:inputType="textPassword"
                 android:textColor="@color/nero_200"
                 android:hint="Inserisci password..." />
@@ -165,8 +180,9 @@
                 android:layout_height="wrap_content"
                 android:text="Conferma Password:"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:fontFamily="@font/baloo"
-                android:textColor="@color/nero"
+                android:textColor="@color/turchese"
                 android:layout_marginTop="@dimen/MarginBetween"/>
 
             <EditText
@@ -175,11 +191,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
                 android:textSize="@dimen/Text"
+                app:autoSizeTextType="uniform"
                 android:inputType="textPassword"
                 android:textColor="@color/nero_200"
                 android:hint="Ripeti password..." />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegistrati"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -188,7 +205,9 @@
                 android:layout_marginBottom="@dimen/MarginLeftRight"
                 android:fontFamily="@font/baloo"
                 android:textSize="@dimen/Text"
-                android:background="@drawable/button_draw"
+                app:autoSizeTextType="uniform"
+                app:cornerRadius="@dimen/radiusButton"
+                android:padding="@dimen/paddingButton"
                 app:backgroundTint="@color/turchese"/>
         </LinearLayout>
     </ScrollView>

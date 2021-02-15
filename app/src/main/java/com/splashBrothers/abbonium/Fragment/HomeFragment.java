@@ -1,10 +1,14 @@
-package com.splashBrothers.abbonium.HomeFragment;
+package com.splashBrothers.abbonium.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -13,40 +17,42 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.splashBrothers.abbonium.ListaServiziHomeAdapter;
-import com.splashBrothers.abbonium.LoginActivity;
+import com.splashBrothers.abbonium.Activity.DettagliGruppoUniscitiActivity;
+import com.splashBrothers.abbonium.Activity.ListaServiziAdapter;
+import com.splashBrothers.abbonium.Activity.ListaServiziClickInterface;
 import com.splashBrothers.abbonium.R;
 import com.splashBrothers.abbonium.Data.Services.Servizio;
-import com.splashBrothers.abbonium.Data.Services.ServizioInfo;
-import com.splashBrothers.abbonium.Data.Services.ServizioMarvelUnlimited;
-import com.splashBrothers.abbonium.Data.Services.ServizioNetflix;
 import com.splashBrothers.abbonium.Data.Utente;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements ListaServiziClickInterface {
 
     SearchView searchView;
     TextView benvenuto;
     RecyclerView listaServiziGlobali;
 
-    ListaServiziHomeAdapter listaServiziHomeAdapter;
+    ListaServiziAdapter listaServiziAdapter;
     Utente utenteAttivo;
     HashMap<String, Utente> utentiGlobali;
     ArrayList<Servizio> serviziGlobali;
 
-    public HomeFragment(HashMap<String, Utente> utentiGlobali, ArrayList<Servizio> serviziGlobali, Utente utenteAttivo) {
-        this.utenteAttivo = utenteAttivo;
-        this.serviziGlobali = serviziGlobali;
-        this.utentiGlobali = utentiGlobali;
+    public HomeFragment() { }
+
+    public static HomeFragment newInstance(HashMap<String, Utente> utentiGlobali, ArrayList<Servizio> serviziGlobali, Utente utenteAttivo) {
+        HomeFragment myFragment = new HomeFragment();
+
+        Bundle args = new Bundle();
+        args.putSerializable("utentiGlobali", utentiGlobali);
+        args.putSerializable("serviziGlobali", serviziGlobali);
+        args.putSerializable("utenteAttivo", utenteAttivo);
+        myFragment.setArguments(args);
+
+        return myFragment;
     }
 
     @Override
@@ -55,6 +61,17 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        utenteAttivo = (Utente) getArguments().getSerializable("utenteAttivo");
+        utentiGlobali = (HashMap<String, Utente>) getArguments().getSerializable("utentiGlobali");
+        serviziGlobali = (ArrayList<Servizio>) getArguments().getSerializable("serviziGlobali");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @SuppressLint("SetTextI18n")
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -62,14 +79,15 @@ public class HomeFragment extends Fragment {
         benvenuto = view.findViewById(R.id.textBenvenuto);
         searchView = view.findViewById(R.id.searchBar);
 
+        //Imposto benvenuto
+        benvenuto.setText("Benvenuto " + utenteAttivo.getNome());
+
         //Imposto la dimensione del recyclerView fissa
         listaServiziGlobali.setHasFixedSize(true); //Imposto la dimensione del recyclerView fissa
-        listaServiziGlobali.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
+        listaServiziGlobali.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        listaServiziHomeAdapter = new ListaServiziHomeAdapter(serviziGlobali);
-        listaServiziGlobali.setAdapter(listaServiziHomeAdapter);
-
-        benvenuto.setText("Benvenuto " + utenteAttivo.getNome());
+        listaServiziAdapter = new ListaServiziAdapter(serviziGlobali, utenteAttivo.getEmail(), false, this);
+        listaServiziGlobali.setAdapter(listaServiziAdapter);
 
         //Modifico il font della searchView
         Typeface tf = ResourcesCompat.getFont(requireContext(), R.font.baloo);
@@ -85,10 +103,20 @@ public class HomeFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String query) {
-                listaServiziHomeAdapter.getFilter().filter(query);
+                listaServiziAdapter.getFilter().filter(query);
                 return false;
             }
         });
+    }
 
+    @SuppressLint("ShowToast")
+    @Override
+    public void onItemClick(Servizio servizio) {
+        Intent intent = new Intent(getActivity(), DettagliGruppoUniscitiActivity.class);
+
+        intent.putExtra("servizio", servizio);
+        intent.putExtra("utenteAttivo", utenteAttivo);
+        intent.putExtra("activity", "homeActivity");
+        startActivity(intent);
     }
 }
