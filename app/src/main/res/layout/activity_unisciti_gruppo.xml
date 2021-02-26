@@ -55,7 +55,7 @@
                 android:textSize="@dimen/Text"
                 android:textColor="@color/nero_200"
                 android:textStyle="italic"
-                android:text="Dichiara la relazione che hai con l'admin per unirti al gruppo"
+                android:text="Dichiara la relazione che hai con l'amministratore per unirti al gruppo"
                 android:justificationMode="inter_word" />
 
            <RadioGroup

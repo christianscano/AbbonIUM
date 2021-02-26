@@ -80,7 +80,14 @@ abstract public class Servizio implements Serializable {
     }
 
     public double getCostoSingolo() {
-        return Math.round((costoTotale / (maxPosti + 1)) * 100.0) / 100.0;
+        switch(nomeServizio) {
+            case "NETFLIX PREMIUM":
+                return Math.round((costoTotale / (ServizioInfo.InfoNetflix.maxPosti + 1)) * 100.0) / 100.0;
+            case "DISNEY PLUS":
+                return Math.round((costoTotale / (ServizioInfo.InfoDisneyPlus.maxPosti + 1)) * 100.0) / 100.0;
+        }
+
+        return 0.0;
     }
 
     public String getLinkCondivisione() {

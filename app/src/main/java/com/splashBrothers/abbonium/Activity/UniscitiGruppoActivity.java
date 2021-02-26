@@ -91,7 +91,7 @@ public class UniscitiGruppoActivity extends AppCompatActivity {
             }
         });
 
-        showAlertDialogInfo("Questa è una versione demo dell'applicazione finale, quindi il pagamento verrà solo simulato");
+        showAlertDialogInfo("Questa è una versione demo dell'applicazione finale, quindi il pagamento verrà solo simulato", false);
     }
 
 
@@ -183,13 +183,11 @@ public class UniscitiGruppoActivity extends AppCompatActivity {
             servizio.aggiungiMembro(utenteAttivo);
             utenteAttivo.getMyGruppiUnito().put(servizio.getNomeServizio(), servizio);
 
-            Intent intent = new Intent(UniscitiGruppoActivity.this, HomeActivity.class);
-            intent.putExtra("utenteAttivo", utenteAttivo);
-            startActivity(intent);
+            showAlertDialogInfo("Ti sei unito correttamente al gruppo, da adesso potrai trovarlo nella sezione \"Gruppi\"", true);
         }
     }
 
-    protected void showAlertDialogInfo(String messaggio) {
+    protected void showAlertDialogInfo(String messaggio, boolean isWait) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(UniscitiGruppoActivity.this);
         View layoutView = getLayoutInflater().inflate(R.layout.alert_dialog_message, null);
         TextView testo = layoutView.findViewById(R.id.testo);
@@ -202,7 +200,12 @@ public class UniscitiGruppoActivity extends AppCompatActivity {
         btnConferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertDialog.dismiss();
+                if(isWait) {
+                    Intent intent = new Intent(UniscitiGruppoActivity.this, HomeActivity.class);
+                    intent.putExtra("utenteAttivo", utenteAttivo);
+                    startActivity(intent);
+                } else
+                    alertDialog.dismiss();
             }
         });
 

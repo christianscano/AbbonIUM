@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:src="@drawable/marvel_unlimited_image" />
+            android:src="@drawable/disney_plus" />
 
         <TextView
             android:id="@+id/textNomeUtenteCard"

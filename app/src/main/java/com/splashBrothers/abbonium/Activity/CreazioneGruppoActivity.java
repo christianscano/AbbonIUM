@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.splashBrothers.abbonium.Data.Services.Servizio;
 import com.splashBrothers.abbonium.Data.Services.ServizioInfo;
-import com.splashBrothers.abbonium.Data.Services.ServizioMarvelUnlimited;
+import com.splashBrothers.abbonium.Data.Services.ServizioDisneyPlus;
 import com.splashBrothers.abbonium.Data.Services.ServizioNetflix;
 import com.splashBrothers.abbonium.Data.Utente;
 import com.splashBrothers.abbonium.R;
@@ -48,6 +48,7 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
         recoveryData();
 
         caricaDropList(true, -1);
+
 
         nomeServizio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,6 +90,7 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
     protected void caricaDropList(boolean isLoad, int id) {
         if(isLoad) {
             ArrayAdapter<String> adapterServizio = new ArrayAdapter<>(this, R.layout.dropdown_item, ServizioInfo.servizi);
+            adapterServizio.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
             nomeServizio.setAdapter(adapterServizio);
         } else {
             ArrayAdapter<String> adapterFrequenza, adapterRelazione, adapterCosto, adapterPosti;
@@ -106,14 +108,14 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
                     adapterPosti = new ArrayAdapter<>(this, R.layout.dropdown_item, generaArrayPosti(ServizioInfo.InfoNetflix.maxPosti));
                     numeroPosti.setAdapter(adapterPosti);
                     break;
-                case 1: //MARVEL
-                    adapterFrequenza = new ArrayAdapter<String>(this, R.layout.dropdown_item, ServizioInfo.InfoMarvelUnlimited.tipoRinnovo);
+                case 1: //DISNEY PLUS
+                    adapterFrequenza = new ArrayAdapter<String>(this, R.layout.dropdown_item, ServizioInfo.InfoDisneyPlus.tipoRinnovo);
                     frequenza.setAdapter(adapterFrequenza);
-                    adapterRelazione = new ArrayAdapter<String>(this, R.layout.dropdown_item, ServizioInfo.InfoMarvelUnlimited.tipoRelazione);
+                    adapterRelazione = new ArrayAdapter<String>(this, R.layout.dropdown_item, ServizioInfo.InfoDisneyPlus.tipoRelazione);
                     tipoRelazione.setAdapter(adapterRelazione);
-                    adapterCosto = new ArrayAdapter<>(this, R.layout.dropdown_item, ServizioInfo.InfoMarvelUnlimited.costoTotale);
+                    adapterCosto = new ArrayAdapter<>(this, R.layout.dropdown_item, ServizioInfo.InfoDisneyPlus.costoTotale);
                     costo.setAdapter(adapterCosto);
-                    adapterPosti = new ArrayAdapter<>(this, R.layout.dropdown_item, generaArrayPosti(ServizioInfo.InfoMarvelUnlimited.maxPosti));
+                    adapterPosti = new ArrayAdapter<>(this, R.layout.dropdown_item, generaArrayPosti(ServizioInfo.InfoDisneyPlus.maxPosti));
                     numeroPosti.setAdapter(adapterPosti);
                     break;
             }
@@ -138,36 +140,35 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
 
     protected boolean checkInput() {
         boolean error = false;
+        String tmp = "Nessun/a:";
 
-        if(nomeServizio.getText() == null || nomeServizio.getText().length() == 0) {
+        if(nomeServizio.getText().toString() == null || nomeServizio.getText().toString().length() == 0) {
             error = true;
-            nomeServizio.setError("Nessun servizio selezionato");
-        } else
-            nomeServizio.setError(null);
+            tmp += ("\nServizio selezionato");
+        }
 
         if(frequenza.getText() == null || frequenza.getText().length() == 0) {
             error = true;
-            frequenza.setError("Nessuna frequenza selezionata");
-        } else
-            frequenza.setError(null);
+            tmp += ("\nFrequenza selezionata");
+        }
 
         if(tipoRelazione.getText() == null || tipoRelazione.getText().length() == 0) {
             error = true;
-            tipoRelazione.setError("Nessuna relazione selezionata");
-        } else
-            tipoRelazione.setError(null);
+            tmp += ("\nRelazione selezionata");
+        }
 
         if(costo.getText() == null || costo.getText().length() == 0) {
             error = true;
-            frequenza.setError("Nessun costo selezionato");
-        } else
-            frequenza.setError(null);
+            tmp += ("\nCosto selezionato");
+        }
 
         if(numeroPosti.getText() == null || numeroPosti.getText().length() == 0) {
             error = true;
-            numeroPosti.setError("Nesssun posto selezionato");
-        } else
-            numeroPosti.setError(null);
+            tmp += ("\nPosto selezionato");
+        }
+
+        if(error)
+            showAlertDialogInfo(tmp, false);
 
         return error;
     }
@@ -190,9 +191,9 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
                     utenteAttivo.getMyGruppiCreati().put(ServizioInfo.servizi[0], newServizio);
                 } else
                     showAlertDialogInfo("Hai già creato o partecipi ad un gruppo per questo servizio", false);
-            } else if(nomeServizio.getText().toString().equals(ServizioInfo.servizi[1]) && utenteAttivo.getMyGruppiUnito().get(ServizioInfo.servizi[1]) == null) { //MARVEL
+            } else if(nomeServizio.getText().toString().equals(ServizioInfo.servizi[1]) && utenteAttivo.getMyGruppiUnito().get(ServizioInfo.servizi[1]) == null) { //DISNEY PLUS
                 if(utenteAttivo.getMyGruppiCreati().get(ServizioInfo.servizi[1]) == null) {
-                    newServizio = new ServizioMarvelUnlimited(
+                    newServizio = new ServizioDisneyPlus(
                             Double.parseDouble(costo.getText().toString()),
                             frequenza.getText().toString(),
                             tipoRelazione.getText().toString(),
@@ -207,7 +208,7 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
             //Se la creazione è andata a buon fine
             if(newServizio != null) {
                 LoginActivity.serviziGlobali.add(newServizio);
-                showAlertDialogInfo("Il gruppo è stato creato correttamente, da adesso potrai trovarlo nella sezione Gruppi", true);
+                showAlertDialogInfo("Il gruppo è stato creato correttamente, da adesso potrai trovarlo nella sezione \"Gruppi\"", true);
             }
         }
     }
@@ -225,13 +226,13 @@ public class CreazioneGruppoActivity extends AppCompatActivity {
         btnConferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertDialog.dismiss();
-
                 if(wait) {
                     Intent intent = new Intent(CreazioneGruppoActivity.this, HomeActivity.class);
                     intent.putExtra("utenteAttivo", utenteAttivo);
                     startActivity(intent);
                 }
+
+                alertDialog.dismiss();
             }
         });
 

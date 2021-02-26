@@ -1,6 +1,9 @@
 package com.splashBrothers.abbonium.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -22,17 +25,21 @@ import com.splashBrothers.abbonium.Data.Services.Servizio;
 import com.splashBrothers.abbonium.Data.Utente;
 import com.splashBrothers.abbonium.R;
 
+import java.util.ArrayList;
+
 public class DettagliGruppoActivity extends AppCompatActivity {
 
     Utente utenteAttivo;
     Servizio servizio;
 
     ClipboardManager clipboardManager;
-
     ImageButton btnExit, btnBack, btnShare;
     TextView nomeProprietario, nomeServizio, rinnovo, nPosti, costo;
     ImageView imgBackground;
     Button btnApriChat;
+
+    RecyclerView recyclerView;
+    ListaMembriAdapter listaMembriAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +56,21 @@ public class DettagliGruppoActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnExit = findViewById(R.id.btnExitGroup);
         btnShare = findViewById(R.id.btnShareGroup);
-
         clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        recyclerView = findViewById(R.id.listaMembri);
 
         recoveryData();
 
         caricaDati();
 
+        //Configurazione RecyclerView
+        recyclerView.setHasFixedSize(true); //Imposto la dimensione del recyclerView fissa
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        listaMembriAdapter = new ListaMembriAdapter(new ArrayList<Utente>(servizio.getMembri().values()));
+        recyclerView.setAdapter(listaMembriAdapter);
+
+        //Configurazione pulsanti
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

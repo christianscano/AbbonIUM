@@ -8,14 +8,14 @@ import com.splashBrothers.abbonium.Data.Utente;
 
 import java.io.Serializable;
 
-public class ServizioMarvelUnlimited extends Servizio implements Serializable {
+public class ServizioDisneyPlus extends Servizio implements Serializable {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public ServizioMarvelUnlimited(double costoTotale, String tipoRinnovo, String tipoRelazione,
-                                   int maxPosti, Utente proprietario) {
+    public ServizioDisneyPlus(double costoTotale, String tipoRinnovo, String tipoRelazione,
+                              int maxPosti, Utente proprietario) {
         super(
-                ServizioInfo.InfoMarvelUnlimited.nomeServizio,
-                ServizioInfo.InfoMarvelUnlimited.imgSource,
+                ServizioInfo.InfoDisneyPlus.nomeServizio,
+                ServizioInfo.InfoDisneyPlus.imgSource,
                 costoTotale,
                 tipoRinnovo,
                 tipoRelazione,

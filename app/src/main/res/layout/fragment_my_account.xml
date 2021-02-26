@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:textSize="@dimen/Text"
-                    android:textColor="@color/nero"
+                    android:textColor="@color/turchese"
                     android:text="Email:" />
 
                 <TextView
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:textSize="@dimen/Text"
-                    android:textColor="@color/nero"
+                    android:textColor="@color/turchese"
                     android:layout_marginTop="@dimen/MarginBetween"
                     android:text="Password:" />
 
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:textSize="@dimen/Text"
-                    android:textColor="@color/nero"
+                    android:textColor="@color/turchese"
                     android:layout_marginTop="@dimen/MarginBetween"
                     android:text="Data nascita:" />
 
@@ -122,7 +122,7 @@
                 android:text="ESCI"
                 android:layout_below="@id/boxIntestazione"
                 android:layout_marginBottom="@dimen/MarginLeftRight"
-                android:layout_marginTop="50sp" />
+                android:layout_marginTop="30sp" />
         </RelativeLayout>
 
     </ScrollView>

@@ -41,10 +41,6 @@ public class Utente implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -65,6 +61,13 @@ public class Utente implements Serializable {
         return myGruppiCreati;
     }
 
+    public void setMyGruppiUnito(HashMap<String, Servizio> myGruppiUnito) {
+        this.myGruppiUnito = myGruppiUnito;
+    }
+
+    public void setMyGruppiCreati(HashMap<String, Servizio> myGruppiCreati) {
+        this.myGruppiCreati = myGruppiCreati;
+    }
 
     /* --- FUNZIONI --- */
     public boolean esisteServizio(String nomeServizio) {

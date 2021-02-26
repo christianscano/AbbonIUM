@@ -93,6 +93,8 @@ public class HomeActivity extends AppCompatActivity{
         utenteAttivo = (Utente) intent.getSerializableExtra("utenteAttivo");
         isHome = intent.getBooleanExtra("isHome", true);
         isFirst = intent.getBooleanExtra("isFirst", false);
+
+        updateUtenti();
     }
 
     protected void showAlertDialogInfo() {
@@ -104,9 +106,9 @@ public class HomeActivity extends AppCompatActivity{
         AlertDialog alertDialog = dialogBuilder.create();
 
         testo.setText(Html.fromHtml("Benvenuto su AbbonIUM, in questa schermata potrai " +
-                "visualizzare tutti i gruppi disponibili a cui puoi unirti oppure se vorrai, potrai direttamente" +
+                "visualizzare tutti i gruppi disponibili a cui potrai unirti oppure se vorrai, potrai direttamente" +
                 " creare un tuo gruppo di condivisione\n" + "<b>Attenzione: Questa è una versione demo quindi potrai creare o unirti a gruppi di\n" +
-                "        condivisione NETFLIX o MARVEL UNLIMITED<\b>"));
+                "        condivisione NETFLIX o DISNEY PLUS<\b>"));
 
         btnConferma.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,5 +119,10 @@ public class HomeActivity extends AppCompatActivity{
 
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
+    }
+
+    protected void updateUtenti() {
+        LoginActivity.utentiGlobali.get(utenteAttivo.getEmail()).setMyGruppiCreati(utenteAttivo.getMyGruppiCreati());
+        LoginActivity.utentiGlobali.get(utenteAttivo.getEmail()).setMyGruppiUnito(utenteAttivo.getMyGruppiUnito());
     }
 }

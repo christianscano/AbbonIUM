@@ -6,7 +6,7 @@ import androidx.annotation.RequiresApi;
 
 import com.splashBrothers.abbonium.Data.Services.Servizio;
 import com.splashBrothers.abbonium.Data.Services.ServizioInfo;
-import com.splashBrothers.abbonium.Data.Services.ServizioMarvelUnlimited;
+import com.splashBrothers.abbonium.Data.Services.ServizioDisneyPlus;
 import com.splashBrothers.abbonium.Data.Services.ServizioNetflix;
 
 import java.util.ArrayList;
@@ -27,11 +27,11 @@ public class GenerateData {
 
         myServizi.get(0).setLinkCondivisione("abbonium/1234");
 
-        myServizi.add(new ServizioMarvelUnlimited(
-                Double.parseDouble(ServizioInfo.InfoMarvelUnlimited.costoTotale[0]),
-                ServizioInfo.InfoMarvelUnlimited.tipoRinnovo[0],
-                ServizioInfo.InfoMarvelUnlimited.tipoRelazione[0],
-                ServizioInfo.InfoMarvelUnlimited.maxPosti,
+        myServizi.add(new ServizioDisneyPlus(
+                Double.parseDouble(ServizioInfo.InfoDisneyPlus.costoTotale[0]),
+                ServizioInfo.InfoDisneyPlus.tipoRinnovo[0],
+                ServizioInfo.InfoDisneyPlus.tipoRelazione[0],
+                ServizioInfo.InfoDisneyPlus.maxPosti,
                 utentiGlobali.get("massi.frau15@virgilio.it")
         ));
 
